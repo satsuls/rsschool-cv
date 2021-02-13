@@ -38,6 +38,6 @@ func askiiHendler(w http.ResponseWriter, r *http.Request) {
 	}
 }
 ``` 
-### 6. You can see my projects in my github repos.
-### 7. Now i am styding in programming school alem.
-### 8. I have pre-intermediate level.
+### 6. You can see my projects in my github repos https://github.com/status .
+### 7. Now i am styding in programming school alem. 
+### 8. I have pre-intermediate level. 
