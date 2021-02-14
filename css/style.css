@@ -1,0 +1,21 @@
+body{
+    background-color: rgb(194, 170, 170);
+    text-align: left;
+}
+
+header,
+footer,
+main{
+    width: 1024px;
+}
+
+footer,
+main{
+    margin: 0 0 0 15;
+}
+
+
+
+img{
+    width: 300px;
+}
