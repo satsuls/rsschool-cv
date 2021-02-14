@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Resume</title>
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+<body>
+    <header>
+        <h1>Sultan Satubaldinov</h1>
+        <img src="./img/unnamed.jpg" alt="cat">
+    </header>
+    <main>
+        <h2>Personal Information:</h2>
+        <pre>
+            Hard working, easy learning person. 
+            I want to develop my programming skills to high level. 
+            I have liitle experience in python, golang, git.
+            You can see my projects in my github repos https://github.com/satsuls.
+            Now i am styding in programming school alem. 
+            I have pre-intermediate level. 
+        </pre>
+        <h2>Skills:</h2>
+        <ul>
+            <li>Python</li>
+            <li>Golnag</li>
+            <li>Git</li>
+        </ul>
+        <h2>Code Example</h2>
+        <pre>
+            <code>
+                package main
+
+                import (
+                    "fmt"
+                    "net/http"
+                    "text/template"
+                )
+
+                var templates *template.Template
+
+                func main() {
+                    fs := http.FileServer(http.Dir("templates"))
+                    http.Handle("/templates/", http.StripPrefix("/templates/", fs))
+                    templates = template.Must(template.ParseGlob("templates/*.html"))
+                    http.HandleFunc("/", askiiHendler)
+                    http.ListenAndServe(":8080", nil)
+                }
+
+                func askiiHendler(w http.ResponseWriter, r *http.Request) {
+                    if r.URL.Path != "/" {
+                        w.WriteHeader(404)
+                        fmt.Fprintf(w, "404 not found")
+                        return
+                    }
+                    switch {
+                    case r.Method == "GET":
+                        templates.ExecuteTemplate(w, "index.html", nil)
+                    case r.Method == "POST":
+                        inputtedText := r.FormValue("inputtedText")
+                        font := r.FormValue("font")
+                        templates.ExecuteTemplate(w, "index.html", askii(inputtedText, font))
+                    }
+                }
+            </code>
+        </pre>
+    </main>
+    <footer>
+        <h2>Contacts:</h2>
+        <pre>Email: ssatubaldinov@gmail.com</pre>
+    </footer>
+</body>
+</html>
